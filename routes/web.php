@@ -16,4 +16,6 @@ Route::post('addproducts','ShopController@addproducts')->name('addproducts');
 Route::get('result','ShopController@search')->name('result');
 Route::get('products/{id}', 'ShopController@find')->name('find');
 
+Route::get('comments', 'CommentsController@index');
+
 Route::get('basket','BasketController@index');
