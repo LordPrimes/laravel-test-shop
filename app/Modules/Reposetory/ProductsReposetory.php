@@ -4,6 +4,7 @@ namespace App\Modules\Reposetory;
 
 use App\Contract\ProductsInterface;
 use App\Exceptions\ProductsException;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;
 
 class ProductsReposetory implements ProductsInterface 
@@ -29,19 +30,16 @@ class ProductsReposetory implements ProductsInterface
         }
     }
     
-    public function items($id)
-    {
-
-    }
 
     public function create(array $data)
     {
-
+        return $this->model->create($data);
     }
 
     public function search(string $items)
     {
-
+        $result = DB::table("products")->where('title', 'LIKE', "%$items%");
+        return $result;
     }
 }
 ?>

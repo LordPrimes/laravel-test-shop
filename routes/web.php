@@ -11,5 +11,9 @@
 |
 */
 
-Route::get('/', 'ShopController@index');
+Route::get('/', 'ShopController@index')->name('index');
+Route::post('addproducts','ShopController@addproducts')->name('addproducts');
+Route::get('result','ShopController@search')->name('result');
+Route::get('products/{id}', 'ShopController@find')->name('find');
+
 Route::get('basket','BasketController@index');
